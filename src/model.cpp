@@ -1,4 +1,5 @@
 #include "model.h"
+#include <cmath>
 #include <iostream>
 
 using Eigen::VectorXd;
@@ -20,6 +21,7 @@ int  Model::CalculateRadarMeasurement(const Eigen::VectorXd& x_state,const Eigen
     h(2) = (x_state(0)*x_state(2) + x_state(1)*x_state(3))/std::max(1e-3,h(0));
 
     e = z - h;
+    e(1) = fmod(e(1) + M_PI_2,M_PI)-M_PI_2;
 
     // calculate the corresponding jacobian
     if (NULL != H)

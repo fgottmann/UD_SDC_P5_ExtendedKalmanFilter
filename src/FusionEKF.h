@@ -8,6 +8,7 @@
 #include "kalman_filter.h"
 #include "measurement_package.h"
 #include "tools.h"
+#include "model.h"
 
 class FusionEKF {
  public:
@@ -41,9 +42,7 @@ class FusionEKF {
 
   // tool object used to compute Jacobian and RMSE
   Tools tools;
-  Eigen::MatrixXd R_laser_;
-  Eigen::MatrixXd R_radar_;
-  Eigen::MatrixXd H_laser_;
+  Model model_;
 };
 
 #endif // FusionEKF_H_

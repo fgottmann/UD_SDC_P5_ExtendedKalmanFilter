@@ -5,33 +5,23 @@
 #include "Eigen/Dense"
 
 class Tools {
- public:
+public:
   /**
-   * Constructor.
-   */
+  * Constructor.
+  */
   Tools();
 
   /**
-   * Destructor.
-   */
+  * Destructor.
+  */
   virtual ~Tools();
 
   /**
-   * A helper method to calculate RMSE.
-   */
+  * A helper method to calculate RMSE.
+  */
   Eigen::VectorXd CalculateRMSE(const std::vector<Eigen::VectorXd> &estimations,
-                                const std::vector<Eigen::VectorXd> &ground_truth);
+    const std::vector<Eigen::VectorXd> &ground_truth);
+    
+  };
 
-  /**
-   * A helper method to calculate Jacobians.
-   */
-  Eigen::MatrixXd CalculateJacobianRadarMeasurement(const Eigen::VectorXd& x_state);
-
-  /**
-   * A helper method to get the comparison value to the radar measurements from the KF.
-   */
-  Eigen::VectorXd CalculateRadarMeasurement(const Eigen::VectorXd& x_state);
-
-};
-
-#endif  // TOOLS_H_
+  #endif  // TOOLS_H_
